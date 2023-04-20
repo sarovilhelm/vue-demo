@@ -1,18 +1,21 @@
 <template>
-    <div>
-        <todo v-for="(todo, index) in todos" :key="index" :todo="todo"/>
-    </div>
+        <v-container>
+            <todo v-for="(todo) in todos" :key="todo.id" :todo="todo"/>
+        </v-container>
 </template>
 
 <script>
 import Todo from './TodoComponent.vue';
-import {mapState} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
 export default {
     components: {
         Todo
     },
     computed: {
+        ...mapGetters({
+            completedTodos: 'getCompletedTodos',
+        }),
         ...mapState({
             todos: 'todos'
         })

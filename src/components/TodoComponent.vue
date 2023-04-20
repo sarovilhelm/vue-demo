@@ -1,10 +1,13 @@
 <template>
-    <div style="width:250px; margin: 5px auto">
-        <div style="display: flex; justify-content: space-between">
-<span :class="{completed: todo.completed}" @click="toggleTodoStatus(todo)">{{ todo.title }}</span>
-            <button @click="deleteTodo(todo)">Delete</button>
+    <v-container>
+        <h1>1</h1>
+        <div style="width:250px; margin: 5px auto">
+            <div style="display: flex; justify-content: space-between">
+                <span :class="{completed: todo.completed}" @click="toggleHandler(todo)">{{ todo.task_name }} || {{todo}}</span>
+                <v-btn @click="deleteTodo(todo)">Delete</v-btn>
+            </div>
         </div>
-    </div>
+    </v-container>
 </template>
 
 <script>
@@ -17,7 +20,11 @@ export default {
         ...mapActions({
             deleteTodo: "deleteTodoItem",
             toggleTodoStatus: "toggleTodoStatus"
-        })
+        }),
+        async toggleHandler(todo) {
+            console.log('TODO IN toggleHandler', todo)
+            await this.toggleTodoStatus(todo)
+        }
     }
 }
 </script>
