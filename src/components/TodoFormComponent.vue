@@ -31,7 +31,6 @@ export default {
     methods: {
         ...mapActions(['addNewTodoItem']),
         async addNewTodoItemHandler() {
-            console.log('1!!', this.newTodoItem)
             await this.addNewTodoItem(this.newTodoItem);
             this.newTodoItem = "";
         }

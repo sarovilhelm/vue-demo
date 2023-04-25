@@ -22,7 +22,6 @@ export default {
             toggleTodoStatus: "toggleTodoStatus"
         }),
         async toggleHandler(todo) {
-            console.log('TODO IN toggleHandler', todo)
             await this.toggleTodoStatus(todo)
         }
     }

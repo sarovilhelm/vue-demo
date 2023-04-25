@@ -1,4 +1,3 @@
-
 export default {
     getCompletedTodos(state) {
         return state.todos.filter(todo => todo.completed).length;

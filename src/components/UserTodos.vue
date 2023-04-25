@@ -27,12 +27,10 @@ export default {
         TodoFormComponent
     },
     methods: {
-        ...mapActions(['syncTodoList', 'addNewTodoItem', 'watchTodos']),
+        ...mapActions(['addNewTodoItem', 'watchTodos']),
     },
     async created() {
-        // await this.syncTodoList() IS NOT NEEDED?
         this.watchTodos()
-
     }
 }
 

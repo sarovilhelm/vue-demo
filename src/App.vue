@@ -6,21 +6,6 @@
             <AuthenticationGuard />
         </v-container>
     </v-app>
-<!--    <div>-->
-<!--        <Navbar />-->
-<!--        <router-view />-->
-<!--        <AuthenticationGuard />-->
-<!--    </div>-->
-<!--    <v-app>-->
-<!--        <v-container id="app">-->
-<!--            <router-link to="/">Home</router-link> |-->
-<!--            <router-link to="/about">About</router-link>-->
-
-<!--        </v-container>-->
-<!--    </v-app>-->
-<!--  <div id="app">-->
-
-<!--  </div>-->
 </template>
 
 <script>
@@ -30,7 +15,7 @@ import Navbar from "@/components/NavbarComponent.vue";
 export default {
   name: 'App',
     computed: {
-      ...mapState(["todos", "ALO"]),
+      ...mapState(["todos"]),
       ...mapGetters({
           completedTodos: 'getCompletedTodos',
           pendingTodos: 'getPendingTodos',
@@ -38,13 +23,7 @@ export default {
     },
   components: {
       Navbar,
-      // TodosList,
-      // TodoFormComponent
   },
-    created() {
-        console.log('this.state', this.todos)
-        console.log('......................', this.ALO)
-    }
 }
 </script>
 

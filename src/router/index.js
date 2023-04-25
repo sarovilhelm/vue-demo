@@ -16,11 +16,6 @@ const routes = [
         path: "/signup",
         component: () => import(/* webpackChunkName: "login" */ "@/components/SignUpComponent.vue"),
     },
-    // {
-    //     path: "/public", // this route is public, no `beforeEnter`
-    //     name: "public",
-    //     component: () => import(/* webpackChunkName: "public" */ "@/views/Public.vue"), // example public route
-    // },
     {
         path: "/todos",
         meta: { requiresAuth: true }, // this route requires authentication guard
