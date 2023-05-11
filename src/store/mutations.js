@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 export default {
     LOGIN(state, key) {
         state.user.accessKey = key;
@@ -24,6 +26,7 @@ export default {
             return todoItem.id === todoItemInput.id
         });
         state.todos[toUpdateIndex].completed = todoItemInput.completed;
+        state.todos[toUpdateIndex].task_name = todoItemInput.task_name;
     },
     //we do not need that as it is not necessary to do this by hand!(realtime updates take care fo this!)
     TOGGLE_TODO_STATUS(state, todoItem) {
@@ -33,11 +36,16 @@ export default {
     // add firestore snapshot subscription - unsubscribe handle
     ADD_SUBSCRIPTION: (state, subscription) => {
         const key = Object.keys(subscription)[0] // snapshot key
+        console.log('key', key)
         const val = Object.values(subscription)[0] // snapshot unsubscribe function
 
         console.log("[ SNAPSHOT ]: subscribed to: [", key, "]")
 
-        state.snapshots[key] = val
+        Vue.set(state.snapshots, key, val)
+    },
+    // make todos array empty
+    DESTROY_TODOS: (state) => {
+        state.todos = []
     },
 
 }

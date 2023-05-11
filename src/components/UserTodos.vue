@@ -11,7 +11,7 @@
 <script>
 import TodosList from '@/components/TodosListComponent.vue'
 import TodoFormComponent from "@/components/TodoFormComponent.vue"
-import {mapActions, mapGetters} from "vuex"
+import {mapActions, mapGetters, mapMutations} from "vuex"
 
 
 export default {
@@ -20,20 +20,27 @@ export default {
         ...mapGetters({
             completedTodos: 'getCompletedTodos',
             pendingTodos: 'getPendingTodos',
-        })
+            doesTodosSubExist: 'todosSubExists',
+        }),
     },
     components: {
         TodosList,
         TodoFormComponent
     },
     methods: {
-        ...mapActions(['addNewTodoItem', 'watchTodos']),
+        ...mapActions(['addNewTodoItem', 'watchTodos', 'snapshotUnsubscribe']),
+        ...mapMutations(['DESTROY_TODOS']),
     },
     async created() {
-        this.watchTodos()
+        //check if the 'todosSubscription' already exists!
+        console.log('this.doesTodosSubExist', this.doesTodosSubExist)
+        if (!this.doesTodosSubExist) this.watchTodos()
+    },
+    destroyed() {
+        this.DESTROY_TODOS()
+        this.snapshotUnsubscribe()
     }
 }
-
 
 
 </script>

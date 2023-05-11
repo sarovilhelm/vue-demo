@@ -17,9 +17,9 @@ const routes = [
         component: () => import(/* webpackChunkName: "login" */ "@/components/SignUpComponent.vue"),
     },
     {
+        name: "todo",
         path: "/todos",
         meta: { requiresAuth: true }, // this route requires authentication guard
-        name: "todo",
         component: () => import(/* webpackChunkName: "protected" */ "@/components/UserTodos.vue"), // example protected route
     },
 ]

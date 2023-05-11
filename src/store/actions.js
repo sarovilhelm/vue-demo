@@ -1,13 +1,15 @@
 import watchTodos from "@/store/actions/watchTodos";
-import handleSubmit from "@/store/actions/handleSumbit";
 import addNewTodoItem from "@/store/actions/addNewTodo";
 import deleteTodoItem from "@/store/actions/deleteTodoItem";
 import toggleTodoStatus from "@/store/actions/toggleTodoStatus";
+import snapshotUnsubscribe from "@/store/actions/snapshotUnsubscribe";
+import logout from "@/store/actions/logout";
 
 export default {
+    logout,
     watchTodos,
-    handleSubmit,
     addNewTodoItem,
     deleteTodoItem,
     toggleTodoStatus,
+    snapshotUnsubscribe,
 }
