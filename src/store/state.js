@@ -1,7 +1,7 @@
 export default {
-    user: {},
-    todos: [],
+	user: {},
+	todos: [],
 
-    // firestore snapshot subscriptions
-    snapshots: {},
+	// firestore snapshot subscriptions
+	snapshots: {}
 }
